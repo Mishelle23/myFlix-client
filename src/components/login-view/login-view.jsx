@@ -22,8 +22,8 @@ export function LoginView(props) {
     if (!password) {
       setPasswordErr('Password Required');
       isReq = false;
-    } else if (password.length < 6) {
-      setPassword('Password must be 6 characters long');
+    } else if (password.length < 4) {
+      setPassword('Password must be 4 characters long');
       isReq = false;
     }
 
@@ -47,33 +47,32 @@ export function LoginView(props) {
           console.log('no such user')
         });
     };
-
-    return (
-      <Form>
-        <Form.Group controlId="formUsername">
-          <Form.Label>Username:</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={e => setUsername(e.target.value)} />
-          {usernameErr && <p>{usernameErr}</p>}
-        </Form.Group>
-
-        <Form.Group controlId="formPassword">
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)} />
-          {passwordErr && <p>{passwordErr}</p>}
-        </Form.Group>
-        <Button variant="primary" type="submit" onClick={handleSubmit}>
-          Submit
-        </Button>
-        <Button>Register</Button>
-      </Form>
-    );
   }
+  return (
+    <Form>
+      <Form.Group controlId="formUsername">
+        <Form.Label>Username:</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter username"
+          value={username}
+          onChange={e => setUsername(e.target.value)} />
+        {usernameErr && <p>{usernameErr}</p>}
+      </Form.Group>
+
+      <Form.Group controlId="formPassword">
+        <Form.Label>Password:</Form.Label>
+        <Form.Control
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)} />
+        {passwordErr && <p>{passwordErr}</p>}
+      </Form.Group>
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
+      <Button>Register</Button>
+    </Form>
+  );
 }

@@ -11,23 +11,64 @@ export function RegistrationView(props) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
 
+  const [values, setValues] = useState({
+    usernameErr: '',
+    passwordErr: '',
+    emailErr: '',
+    birthdayErr: '',
+  });
+
+
+  const validate = () => {
+    let isReq = true;
+    if (!username) {
+      setValues({ ...values, usernameErr: 'Username is required' });
+      isReq = false;
+    } else if (username.length < 5) {
+      setValues({ ...values, usernameErr: 'Username must be 5 characters long' })
+      isReq = false;
+    }
+    if (!password) {
+      setValues({ ...values, passwordErr: 'Password Required' });
+      isReq = false;
+    } else if (password.length < 4) {
+      setValues({ ...values, passwordErr: 'Password must be 4 characters long' });
+      isReq = false;
+    }
+    if (!email) {
+      setValues({ ...values, emailErr: 'Email Required' });
+      isReq = false;
+    } else if (email.indexOf('@') === -1) {
+      setValues({ ...values, emailErr: 'Email is invalid' });
+      isReq = false;
+    }
+
+    return isReq;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://safe-coast-49930.herokuapp.com/users', {
-      Username: username,
-      Password: password,
-      Email: email,
-      Birthday: birthday
-    })
-      .then(response => {
-        const data = response.data;
-        console.log(data);
-        window.open('/', '_self');
+    const isReq = validate();
+    if (isReq) {
+      axios.post('https://safe-coast-49930.herokuapp.com/users', {
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
       })
-      .catch(e => {
-        console.log('error registering the user')
-      });
-  };
+        .then(response => {
+          const data = response.data;
+          console.log(data);
+          alert('Registration successful, please login');
+          window.open('/', '_self');
+        })
+        .catch(response => {
+          console.error(respose);
+          alert('unable to register');
+        });
+    };
+  }
+
   return (
     <Container>
       <Row>
@@ -44,7 +85,9 @@ export function RegistrationView(props) {
                       value={username}
                       onChange={e => setUsername(e.target.value)}
                       required
+                      minLength="5"
                       placeholder="Enter Username" />
+                    {values.usernameErr && <p>{values.usernameErr}</p>}
                   </Form.Group>
 
                   <Form.Group>
@@ -54,9 +97,10 @@ export function RegistrationView(props) {
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       required
-                      minLength="8"
+                      minLength="4"
                       placeholder="Enter your Password"
                     />
+                    {values.passwordErr && <p>{values.passwordErr}</p>}
                   </Form.Group>
 
                   <Form.Group>
@@ -68,6 +112,7 @@ export function RegistrationView(props) {
                       reqiured
                       placeholder="Enter your Email"
                     />
+                    {values.emailErr && <p>{values.emailErr}</p>}
                   </Form.Group>
 
                   <Form.Group>
