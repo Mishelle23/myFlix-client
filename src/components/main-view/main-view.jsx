@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Routes, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -79,7 +79,7 @@ export class MainView extends React.Component {
     }}>Logout</button>
 
     return (
-      <Routes>
+      <Router>
         <Container>
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
@@ -138,7 +138,7 @@ export class MainView extends React.Component {
 
           </Row>
         </Container>
-      </Routes>
+      </Router>
     );
   }
 }

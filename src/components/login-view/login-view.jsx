@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export function LoginView(props) {
   const [username, setUsername] = useState('');
@@ -35,16 +36,17 @@ export function LoginView(props) {
     const isReq = validate();
     if (isReq) {
       /* Send a request to the server for authentication */
-      axios.post('https://safe-coast-49930.herokuapp.com/login', {
+      axios.post('https://safe-coast-49930.herokuapp.com/login', { headers: { "Access-Control-Allow-Origin": "*" } }, {
         Username: username,
         Password: password
-      })
+      }
+      )
         .then(response => {
           const data = response.data;
           props.onLoggedIn(data);
         })
         .catch(e => {
-          console.log('no such user')
+          console.log(e)
         });
     };
   }
@@ -72,7 +74,9 @@ export function LoginView(props) {
       <Button variant="primary" type="submit" onClick={handleSubmit}>
         Submit
       </Button>
-      <Button>Register</Button>
+      <Link to='/register'>
+        <Button>Register</Button>
+      </Link>
     </Form>
   );
 }

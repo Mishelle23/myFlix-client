@@ -3,7 +3,7 @@ import { Form, Button, Card, CardGroup, Container, Col, Row } from 'react-bootst
 
 import './registration-view.scss';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState('');
@@ -125,6 +125,9 @@ export function RegistrationView(props) {
                   </Form.Group>
 
                   <Button variant="primary" type="submit" onClick={handleSubmit}>Submit</Button>
+                  <Link to='/'>
+                    <Button>Login</Button>
+                  </Link>
                 </Form>
               </Card.Body>
             </Card>

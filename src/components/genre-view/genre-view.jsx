@@ -16,7 +16,7 @@ export function GenreView(props) {
           <div className="genre-description">
             <span className="label">Description: </span>
           </div>
-          <Link to={`/`}>
+          <Link to='/'>
             <Button className='backButton' variant='dark'>Go Back</Button>
           </Link>
         </Col>
