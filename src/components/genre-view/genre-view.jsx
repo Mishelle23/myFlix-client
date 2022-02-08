@@ -15,6 +15,7 @@ export function GenreView(props) {
           </div>
           <div className="genre-description">
             <span className="label">Description: </span>
+            <span className="value">{genre.Description}</span>
           </div>
           <Link to='/'>
             <Button className='backButton' variant='dark'>Go Back</Button>

@@ -36,7 +36,7 @@ export function LoginView(props) {
     const isReq = validate();
     if (isReq) {
       /* Send a request to the server for authentication */
-      axios.post('https://safe-coast-49930.herokuapp.com/login', { headers: { "Access-Control-Allow-Origin": "*" } }, {
+      axios.post('https://safe-coast-49930.herokuapp.com/login', {
         Username: username,
         Password: password
       }
