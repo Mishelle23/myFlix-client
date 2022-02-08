@@ -12,7 +12,7 @@ export function NavbarView({ user }) {
   const onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
-  }
+  };
 
   const isAuth = () => {
     if (typeof window == "undefined") {
