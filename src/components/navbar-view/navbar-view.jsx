@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import './navbar-view.scss';
 
 export function NavbarView({ user }) {
-
   const onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
@@ -37,7 +36,7 @@ export function NavbarView({ user }) {
             )}
             {isAuth() && (
               <Button variant="link" onClick={() => {
-                this.onLoggedOut()
+                onLoggedOut()
               }}>Logout</Button>
             )}
             {!isAuth() && (

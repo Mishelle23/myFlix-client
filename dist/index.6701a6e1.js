@@ -41086,13 +41086,13 @@ function NavbarView({ user  }) {
         variant: "dark",
         __source: {
             fileName: "src/components/navbar-view/navbar-view.jsx",
-            lineNumber: 29
+            lineNumber: 28
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsxs(_containerDefault.default, {
             __source: {
                 fileName: "src/components/navbar-view/navbar-view.jsx",
-                lineNumber: 30
+                lineNumber: 29
             },
             __self: this,
             children: [
@@ -41101,7 +41101,7 @@ function NavbarView({ user  }) {
                     href: "/",
                     __source: {
                         fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 31
+                        lineNumber: 30
                     },
                     __self: this,
                     children: "MyFlix"
@@ -41110,7 +41110,7 @@ function NavbarView({ user  }) {
                     "aria-controls": "responsive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 32
+                        lineNumber: 31
                     },
                     __self: this
                 }),
@@ -41118,14 +41118,14 @@ function NavbarView({ user  }) {
                     id: "resposive-navbar-nav",
                     __source: {
                         fileName: "src/components/navbar-view/navbar-view.jsx",
-                        lineNumber: 33
+                        lineNumber: 32
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_navDefault.default, {
                         className: "ml-auto",
                         __source: {
                             fileName: "src/components/navbar-view/navbar-view.jsx",
-                            lineNumber: 34
+                            lineNumber: 33
                         },
                         __self: this,
                         children: [
@@ -41133,7 +41133,7 @@ function NavbarView({ user  }) {
                                 href: `/users/${user}`,
                                 __source: {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 36
+                                    lineNumber: 35
                                 },
                                 __self: this,
                                 children: user
@@ -41141,11 +41141,11 @@ function NavbarView({ user  }) {
                             isAuth() && /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
                                 variant: "link",
                                 onClick: ()=>{
-                                    this.onLoggedOut();
+                                    onLoggedOut();
                                 },
                                 __source: {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 39
+                                    lineNumber: 38
                                 },
                                 __self: this,
                                 children: "Logout"
@@ -41154,7 +41154,7 @@ function NavbarView({ user  }) {
                                 href: "/",
                                 __source: {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 44
+                                    lineNumber: 43
                                 },
                                 __self: this,
                                 children: "Login"
@@ -41163,7 +41163,7 @@ function NavbarView({ user  }) {
                                 href: "/register",
                                 __source: {
                                     fileName: "src/components/navbar-view/navbar-view.jsx",
-                                    lineNumber: 47
+                                    lineNumber: 46
                                 },
                                 __self: this,
                                 children: "Registration"
