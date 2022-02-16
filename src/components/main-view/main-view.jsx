@@ -80,13 +80,12 @@ class MainView extends React.Component {
     let { movies } = this.props;
     let { user } = this.state;
 
-    <button onClick={() => {
-      this.onLoggedOut()
-    }}>Logout</button>
-
     return (
       <Router>
         <NavbarView user={user} />
+        <button onClick={() => {
+          this.onLoggedOut()
+        }}>Logout</button>
         <Container>
           <Row className="main-view justify-content-md-center">
             <Route exact path="/" render={() => {
