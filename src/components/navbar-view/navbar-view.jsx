@@ -4,11 +4,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
+
 
 import './navbar-view.scss';
 
-export default function NavbarView({ user }) {
+export function NavbarView({ user }) {
   const onLoggedOut = () => {
     localStorage.clear();
     window.open("/", "_self");
