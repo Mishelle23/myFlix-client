@@ -24,19 +24,12 @@ import Container from 'react-bootstrap/Container';
 
 class MainView extends React.Component {
 
-  constructor() {
-    super();
-    this.state = {
-      user: null
-    };
-  }
 
   componentDidMount() {
     let accessToken = localStorage.getItem('token');
     if (accessToken !== null) {
-      this.setState({
-        user: localStorage.getItem('user')
-      });
+      this.props.setUser(localStorage.getItem('user'));
+
       this.getMovies(accessToken);
     }
   }
@@ -57,9 +50,9 @@ class MainView extends React.Component {
   }
 
   onLoggedIn(authData) {
-    this.setState({
-      user: authData.user.Username
-    });
+    this.props.setUser(
+      authData.user.Username
+    );
 
 
     localStorage.setItem('token', authData.token);
@@ -70,15 +63,13 @@ class MainView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.setState({
-      user: null
-    });
+    this.props.setUser(null)
   }
 
   render() {
 
     let { movies } = this.props;
-    let { user } = this.state;
+    let { user } = this.props;
 
     return (
       <Router>

@@ -145,14 +145,6 @@ export class ProfileView extends React.Component {
       });
   };
 
-  onLoggedOut() {
-    localStorage.removeItem('token');
-    localStorage.removeItem('user');
-    this.setState({
-      user: null,
-    });
-    window.open('/', '_self');
-  }
 
   render() {
     const { movies, onBackClick } = this.props;
