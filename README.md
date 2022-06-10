@@ -52,7 +52,7 @@ Profile view
 
 1. download repository or create a clone
 
- [https://github.com/Mishelle23/myFlix-client.git]
+ https://github.com/Mishelle23/myFlix-client.git
 
 2. Initiate parcel
 
